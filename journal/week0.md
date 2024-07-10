@@ -5,7 +5,7 @@
 ### Install AWS CLI
 
 
-## Homeworks CHanges
+## Homeworks Challenges
 
 
 Lucid  Chards 
