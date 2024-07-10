@@ -23,3 +23,17 @@ Lucid  Chards
 
 ## Example of referencing a file in the database
 [week0/json/alarm-config.json](https://github.com/W47-KRTS/aws-bootcamp-cruddur-2023/blob/main/aws/json/alarm-config.json)
+
+## List Example
+
+1. This
+2. Is
+3. An
+4. Ordered
+5. List
+
+## Table Example
+
+| My | Cool | Table |
+| --- | --- | --- |
+|Hello | World | !
