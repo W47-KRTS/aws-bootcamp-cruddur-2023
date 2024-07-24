@@ -8,7 +8,6 @@ COPY requirements.txt requirements.txt
 # Install the python libraries used for the app
 RUN pip3 install -r requirements.txt
 
-
 # Outside Container -> Inside Container
 # . means everything in the current directory
 # first period . - /backend-flask (outside container)
@@ -18,7 +17,6 @@ COPY . .
 # Set Eviroment Variables (Env Vars)
 # Inside COntainer and will remain set when the container is running
 ENV FLASK_ENV=development
-
 
 EXPOSE ${PORT}
 
