@@ -60,7 +60,7 @@ def data_create_message():
   else:
     return model['data'], 200
   return
-
+# ddddd
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():
   data = HomeActivities.run()
