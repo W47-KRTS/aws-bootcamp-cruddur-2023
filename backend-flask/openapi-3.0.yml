@@ -162,7 +162,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/components/schemas/Activity'
+                  $ref: '#/components/schemas/Activity'
 components:
   schemas:
     Activity:
