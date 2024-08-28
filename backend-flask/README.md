@@ -22,3 +22,10 @@ source venv/bin/activate
 ```
 pip install flask
 ```
+
+# must install in backend
+# - pip install Flask
+# - pip install Flask cors
+
+# must install in frontend
+# - npm install
