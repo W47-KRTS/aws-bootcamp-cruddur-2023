@@ -25,7 +25,7 @@ pip install flask
 
 # must install in backend
 # - pip install Flask
-# - pip install Flask cors
+# - pip install Flask_cors
 # - Ctrl+Shift+P - select ocrrect interpreter
 
 # must install in frontend
