@@ -1,13 +1,14 @@
 from datetime import datetime, timedelta, timezone
 class UserActivities:
   def run(user_handle):
+    with xray_recorder.in_segment('home_activities') as segment:
     model = {
       'errors': None,
       'data': None
     }
 
     now = datetime.now(timezone.utc).astimezone()
-
+    segment.put_metadata('key', dict, 'namespace')
     if user_handle == None or len(user_handle) < 1:
       model['errors'] = ['blank_user_handle']
     else:
