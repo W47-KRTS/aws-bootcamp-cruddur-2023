@@ -17,10 +17,19 @@ tasks:
     command: |
       cd backend-flask
       pip install Flask
-  - name: app.py-1
+  - name: app.py-2
     command: |
       cd backend-flask
       pip install Flask_cors
+  - name: app.py-3
+    command: |
+      cd backend-flask
+      pip aws-xray-sdk
+  - name: app.py-4
+    command: |
+      cd backend-flask
+      pip requirements.txt
+      cd ..
 
     init: |
       curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
