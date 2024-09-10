@@ -29,5 +29,7 @@ class UserActivities:
       "results-size": len(model['data'])
     }
     subsegment.put_metadata('key', dict, 'namespace')
+
+    
     return model
   

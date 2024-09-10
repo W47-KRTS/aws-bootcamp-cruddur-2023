@@ -29,7 +29,7 @@ python -m venv venv
 # - pip install Flask_cors
 # - Ctrl+Shift+P - select ocrrect interpreter
 
-# opentelemetry-api 
+# pip install opentelemetry-api 
 # opentelemetry-sdk 
 # opentelemetry-exporter-otlp-proto-http 
 # opentelemetry-instrumentation-flask 

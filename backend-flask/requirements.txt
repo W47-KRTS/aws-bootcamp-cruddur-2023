@@ -9,4 +9,6 @@ opentelemetry-instrumentation-requests
 
 aws-xray-sdk
 
+watchtower
+
 # pip install -r requirements.txt to install the file
