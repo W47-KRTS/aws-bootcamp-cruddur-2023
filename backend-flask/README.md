@@ -1,27 +1,27 @@
 # Install python version
-```
-pyenv install 3.10.9
-```
+
+# pyenv install 3.10.9
+
 
 # Set your python version
-```
-pyenv global 3.10.9
-```
+
+# pyenv global 3.10.9
+
 
 # Create virual environment
-```
-python -m venv venv
-```
+
+# python -m venv venv
+
 
 # Activate environment
-```
+
 # source venv/bin/activate
-```
+
 
 # Install Flask
-```
+
 # pip install flask
-```
+
 # pip install -r requirements.txt to install the file
 
 # must install in backend
@@ -34,6 +34,8 @@ python -m venv venv
 # opentelemetry-exporter-otlp-proto-http 
 # opentelemetry-instrumentation-flask 
 # opentelemetry-instrumentation-requests
+
+# pip install watchtower
 
 
 # must install in frontend
