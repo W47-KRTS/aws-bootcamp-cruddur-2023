@@ -1,7 +1,7 @@
 import './HomeFeedPage.css';
 import React from "react";
-
-import { Auth } from 'aws-amplify';
+import './configureAmplify';
+import { Auth, Hub, signIn, signOut} from 'aws-amplify/auth';
 
 import DesktopNavigation  from '../components/DesktopNavigation';
 import DesktopSidebar     from '../components/DesktopSidebar';
