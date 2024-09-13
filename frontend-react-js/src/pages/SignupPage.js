@@ -2,9 +2,10 @@ import './SignupPage.css';
 import React from "react";
 import {ReactComponent as Logo} from '../components/svg/logo.svg';
 import { Link } from "react-router-dom";
-
+import { Auth } from 'aws-amplify';
 // [TODO] Authenication
 import Cookies from 'js-cookie'
+
 
 export default function SignupPage() {
 
@@ -14,17 +15,30 @@ export default function SignupPage() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [errors, setErrors] = React.useState('');
+  const [cognitoErrors, setCognitoErrors] = React.useState('');
 
   const onsubmit = async (event) => {
     event.preventDefault();
-    console.log('SignupPage.onsubmit')
-    // [TODO] Authenication
-    Cookies.set('user.name', name)
-    Cookies.set('user.username', username)
-    Cookies.set('user.email', email)
-    Cookies.set('user.password', password)
-    Cookies.set('user.confirmation_code',1234)
-    window.location.href = `/confirm?email=${email}`
+    setCognitoErrors('')
+    try {
+        const { user } = await Auth.signUp({
+          username: email,
+          password: password,
+          attributes: {
+              name: name,
+              email: email,
+              preferred_username: username,
+          },
+          autoSignIn: { // optional - enables auto sign in after user is confirmed
+              enabled: true,
+          }
+        });
+        console.log(user);
+        window.location.href = `/confirm?email=${email}`
+    } catch (error) {
+        console.log(error);
+        setCognitoErrors(error.message)
+    }
     return false
   }
 
@@ -45,6 +59,9 @@ export default function SignupPage() {
   if (errors){
     el_errors = <div className='errors'>{errors}</div>;
   }
+
+//before submit component
+{errors}
 
   return (
     <article className='signup-article'>
