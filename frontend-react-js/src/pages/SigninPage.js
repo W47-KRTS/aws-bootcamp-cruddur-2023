@@ -2,10 +2,10 @@ import './SigninPage.css';
 import React from "react";
 import {ReactComponent as Logo} from '../components/svg/logo.svg';
 import { Link } from "react-router-dom";
-import { Auth } from 'aws-amplify';
+
 
 // [TODO] Authenication
-import Cookies from 'js-cookie'
+import { Auth } from 'aws-amplify';
 
 export default function SigninPage() {
 
@@ -13,11 +13,8 @@ export default function SigninPage() {
   const [password, setPassword] = React.useState('');
   const [errors, setErrors] = React.useState('');
 
-  const [cognitoErrors, setCognitoErrors] = React.useState('');
-
-
   const onsubmit = async (event) => {
-    setCognitoErrors('')
+    setErrors('')
     event.preventDefault();
     try {
       Auth.signIn(username, password)
@@ -30,11 +27,11 @@ export default function SigninPage() {
       if (error.code == 'UserNotConfirmedException') {
         window.location.href = "/confirm"
       }
-      setCognitoErrors(error.message)
+      setErrors(error.message)
     }
     return false
   }
-
+  
   const email_onchange = (event) => {
     setEmail(event.target.value);
   }
