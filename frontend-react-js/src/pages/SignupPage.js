@@ -61,7 +61,7 @@ export default function SignupPage() {
   }
 
 //before submit component
-{errors}
+//{errors}
 
   return (
     <article className='signup-article'>
