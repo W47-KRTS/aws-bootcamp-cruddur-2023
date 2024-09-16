@@ -45,7 +45,7 @@ export default function SigninPage() {
   }
 
 // just before submit component
-{errors}
+// {errors}
 
   return (
     <article className="signin-article">
