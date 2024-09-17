@@ -39,7 +39,7 @@ export default function HomeFeedPage() {
     }
   };
 
-    // check if we are authenicated
+    // check if the user is authenicated
   const checkAuth = async () => {
     Auth.currentAuthenticatedUser({
       // Optional, By default is false. 
@@ -48,7 +48,7 @@ export default function HomeFeedPage() {
       bypassCache: false 
     })
     .then((user) => {
-      // console.log('user',user);
+      console.log('user',user);
       return Auth.currentAuthenticatedUser()
     }).then((cognito_user) => {
         setUser({
