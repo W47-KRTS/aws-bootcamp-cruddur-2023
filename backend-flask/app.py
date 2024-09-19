@@ -15,13 +15,13 @@ from services.create_message import *
 from services.show_activity import *
 
 # HoneyComb ----------
-from opentelemetry import trace
-from opentelemetry.instrumentation.flask import FlaskInstrumentor
-from opentelemetry.instrumentation.requests import RequestsInstrumentor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
+#from opentelemetry import trace
+#from opentelemetry.instrumentation.flask import FlaskInstrumentor
+#from opentelemetry.instrumentation.requests import RequestsInstrumentor
+#from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+#from opentelemetry.sdk.trace import TracerProvider
+#from opentelemetry.sdk.trace.export import BatchSpanProcessor
+#from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
 
 
 # X-RAY ---------------
@@ -122,7 +122,7 @@ def data_messages(handle):
   return
 
 @app.route("/api/messages", methods=['POST','OPTIONS'])
-@cross_origin()
+# @xray_recorder.capture('activities_home')
 def data_create_message():
   user_sender_handle = 'andrewbrown'
   user_receiver_handle = request.json['user_receiver_handle']
@@ -134,20 +134,23 @@ def data_create_message():
   else:
     return model['data'], 200
   return
-# ddddd
+
 @app.route("/api/activities/home", methods=['GET'])
+# @xray_recorder.capture('activities_home')
 def data_home():
   data = HomeActivities.run()
   return data, 200
 
 
 @app.route("/api/activities/notifications", methods=['GET'])
+# @xray_recorder.capture('activities_home')
 def data_notifications():
   data = NotificationsActivities.run()
   return data, 200
 
 
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
+# @xray_recorder.capture('activities_home')
 def data_handle(handle):
   model = UserActivities.run(handle)
   if model['errors'] is not None:
@@ -156,6 +159,7 @@ def data_handle(handle):
     return model['data'], 200
 
 @app.route("/api/activities/search", methods=['GET'])
+# @xray_recorder.capture('activities_home')
 def data_search():
   term = request.args.get('term')
   model = SearchActivities.run(term)
@@ -166,6 +170,7 @@ def data_search():
   return
 
 @app.route("/api/activities", methods=['POST','OPTIONS'])
+# @xray_recorder.capture('activities_home')
 @cross_origin()
 def data_activities():
   user_handle  = 'andrewbrown'
