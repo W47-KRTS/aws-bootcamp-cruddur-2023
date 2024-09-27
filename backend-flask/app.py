@@ -4,6 +4,7 @@ from flask_cors import CORS, cross_origin
 import os
 import sys
 
+
 # from flask_awscognito import AWSCognitoAuthentication
 
 from services.home_activities import *
@@ -16,6 +17,8 @@ from services.message_groups import *
 from services.messages import *
 from services.create_message import *
 from services.show_activity import *
+
+from lib.cognito_token_verification import CognitoTokenVerification
 
 # HoneyComb ----------
 #from opentelemetry import trace
@@ -64,6 +67,14 @@ tracer = trace.get_tracer(__name__)
 
 app = Flask(__name__)
 
+
+cognito_token_verification = CognitoTokenVerification(
+
+user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"), 
+user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLINET_ID"), 
+region=os.getenv("AWS_DEFAULT_REGION")
+)
+
 """
 app.config['AWS_COGNITO_USER_POOL_ID'] = os.getenv("AWS_COGNITO_USER_POOL_ID")
 app.config['AWS_COGNITO_USER_POOL_CLINET_ID'] = os.getenv("AWS_COGNITO_USER_POOL_CLINET_ID")
@@ -84,14 +95,6 @@ frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
 origins = [frontend, backend]
 
-#cors = CORS(
- # app, 
-  #resources={r"/api/*": {"origins": origins}},
-  #expose_headers= "location,link",
-  #allow_headers= "content-type,if-modified-since",
-  #methods="OPTIONS,GET,HEAD,POST",
-#)
-
 cors = CORS(
   app, 
   resources={r"/api/*": {"origins": origins}},
@@ -99,7 +102,6 @@ cors = CORS(
   expose_headers='Authorization',
   methods="OPTIONS,GET,HEAD,POST"
 )
-
 
 # WATCHTOWER----------- 
 # @app.after_request
