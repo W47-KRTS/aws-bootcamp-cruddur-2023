@@ -52,7 +52,7 @@ export default function UserFeedPage() {
     if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
 
-    loadData();
+    // loadData();
     checkAuth();
   }, [])
 
