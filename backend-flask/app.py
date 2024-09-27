@@ -1,8 +1,9 @@
 from flask import Flask
 from flask import request
 from flask_cors import CORS, cross_origin
+from flask import jsonify
+from flask import *
 import os
-import sys
 
 
 # from flask_awscognito import AWSCognitoAuthentication
@@ -18,7 +19,7 @@ from services.messages import *
 from services.create_message import *
 from services.show_activity import *
 
-from lib.cognito_jwt_token import CognitoJwtToken
+from lib.cognito_jwt_token import CognitoJwtToken, TokenVerifyError
 
 # HoneyComb ----------
 #from opentelemetry import trace
