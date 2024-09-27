@@ -153,13 +153,17 @@ def data_create_message():
 def data_home():
   access_token = CognitoJwtToken.extract_access_token(request.headers)
   try:
-    claims = cognito_jwt_token.token_service.verify(access_token)
+    claims = cognito_jwt_token.verify(access_token)
+    # authenicated request
+    app.logger.debug('authenicated')
+    app.logger.debug(claims)
   except TokenVerifyError as e:
     _ = request.data
     abort(make_response(jsonify(message=str(e)), 401))  
+    # unauthenicated request
+    app.logger.debug('unauthenicated')
 
-  app.logger.debug('claims')
-  app.logger.debug(claims)
+  
 
   data = HomeActivities.run()
 
