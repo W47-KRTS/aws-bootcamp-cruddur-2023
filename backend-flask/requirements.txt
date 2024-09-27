@@ -11,4 +11,9 @@ aws-xray-sdk
 
 watchtower
 
+blinker
+rollbar
+
+Flask-AWSCognito
+
 # pip install -r requirements.txt to install the file
