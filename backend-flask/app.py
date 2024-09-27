@@ -18,7 +18,7 @@ from services.messages import *
 from services.create_message import *
 from services.show_activity import *
 
-from lib.cognito_token_verification import CognitoTokenVerification
+from lib.cognito_jwt_token import CognitoJwtToken
 
 # HoneyComb ----------
 #from opentelemetry import trace
@@ -58,17 +58,17 @@ from time import strftime
 
 # HoneyComb ----------
 # Initialize tracing and an exporter that can send data to Honeycomb
-provider = TracerProvider()
-processor = BatchSpanProcessor(OTLPSpanExporter())
-provider.add_span_processor(processor)
-trace.set_tracer_provider(provider)
-tracer = trace.get_tracer(__name__)
+#provider = TracerProvider()
+#processor = BatchSpanProcessor(OTLPSpanExporter())
+#provider.add_span_processor(processor)
+#trace.set_tracer_provider(provider)
+#tracer = trace.get_tracer(__name__)
 
 
 app = Flask(__name__)
 
 
-cognito_token_verification = CognitoTokenVerification(
+cognito_jwt_token = CognitoJwtToken(
 
 user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"), 
 user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLINET_ID"), 
@@ -87,8 +87,8 @@ aws_auth = AWSCognitoAuthentication(app)
 
 # HoneyComb ----------
 # Initialize automatic intrumentation with Flask
-FlaskInstrumentor().instrument_app(app)
-RequestsInstrumentor().instrument()
+#FlaskInstrumentor().instrument_app(app)
+#RequestsInstrumentor().instrument()
 
 
 frontend = os.getenv('FRONTEND_URL')
@@ -150,10 +150,18 @@ def data_create_message():
 # @xray_recorder.capture('activities_home')
 # @aws_auth.authentication_required
 def data_home():
-  data = HomeActivities.run()
+  access_token = CognitoJwtToken.extract_access_token(request.headers)
+  try:
+    claims = cognito_jwt_token.token_service.verify(access_token)
+  except TokenVerifyError as e:
+    _ = request.data
+    abort(make_response(jsonify(message=str(e)), 401))  
+
   app.logger.debug('claims')
-  # claims = aws_auth.claims
   app.logger.debug(claims)
+
+  data = HomeActivities.run()
+
   return data, 200
 
 
