@@ -5,7 +5,6 @@ from flask import jsonify
 from flask import *
 import os
 
-
 # from flask_awscognito import AWSCognitoAuthentication
 
 from services.home_activities import *
@@ -30,7 +29,6 @@ from lib.cognito_jwt_token import CognitoJwtToken, TokenVerifyError
 #from opentelemetry.sdk.trace.export import BatchSpanProcessor
 #from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
 
-
 # X-RAY ---------------
 from aws_xray_sdk.core import xray_recorder
 from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
@@ -39,8 +37,6 @@ from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 import watchtower
 import logging
 from time import strftime
-
-
 
 # Configuring Logger to Use CloudWatch
 # LOGGER = logging.getLogger(__name__)
@@ -51,11 +47,9 @@ from time import strftime
 # LOGGER.addHandler(cw_handler)
 # LOGGER.info("some message")
 
-
 # X-RAY ---------------
 # xray_url = os.getenv("AWS_XRAY_URL")
 # xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
-
 
 # HoneyComb ----------
 # Initialize tracing and an exporter that can send data to Honeycomb
@@ -65,12 +59,9 @@ from time import strftime
 #trace.set_tracer_provider(provider)
 #tracer = trace.get_tracer(__name__)
 
-
 app = Flask(__name__)
 
-
 cognito_jwt_token = CognitoJwtToken(
-
 user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"), 
 user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLINET_ID"), 
 region=os.getenv("AWS_DEFAULT_REGION")
@@ -91,7 +82,6 @@ aws_auth = AWSCognitoAuthentication(app)
 #FlaskInstrumentor().instrument_app(app)
 #RequestsInstrumentor().instrument()
 
-
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
 origins = [frontend, backend]
@@ -110,7 +100,6 @@ cors = CORS(
 #    timestamp = strftime('[%Y-%b-%d %H:%M]')
 #    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
 #    return response
-
 
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():
@@ -167,13 +156,11 @@ def data_home():
     data = HomeActivities.run()
   return data, 200
 
-
 @app.route("/api/activities/notifications", methods=['GET'])
 # @xray_recorder.capture('activities_home')
 def data_notifications():
   data = NotificationsActivities.run()
   return data, 200
-
 
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
 # @xray_recorder.capture('activities_home')
