@@ -1,3 +1,8 @@
 #! /usr/bin/bash
 
-psql $CONNECTION_URL -c "drop database cruddur"
+echo "db-drop"
+
+NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
+psql $NO_DB_CONNECTIO_URL -c "drop database cruddur;"
+
+#sed - manipulates strings - s/hello/goodbye/ - replace hello with goodbye
