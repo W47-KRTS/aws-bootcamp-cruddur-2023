@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 #treats the file as a bash file
 
-echo "db-schema-load
+echo "db-schema-load"
 
 psql $CONNECTION_URL cruddur <db/schema.sql
