@@ -1,4 +1,5 @@
 #! /usr/bin/bash
+#treats the file as a bash file
 
 echo "db-drop"
 
