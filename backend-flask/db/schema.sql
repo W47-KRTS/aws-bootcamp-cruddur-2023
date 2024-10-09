@@ -6,6 +6,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- for the app. What works really well, when starting, you can be a monolith,
 -- and then transition to having different databases per domain.
 -- this works well with the schema name spaces in postgres
+-- create Table doc - https://www.postgresql.org/docs/current/
 
 CREATE TABLE public.users (
   uuid UUID DEFAULT uuid_generate_v4() PRIMARY KEY, -- specify the type as being an uuid
