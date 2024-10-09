@@ -1,5 +1,8 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
+DROP TABLE IF EXISTS public.users;
+DROP TABLE IF EXISTS public.activities;
+
 -- schema is like the excel file, tables/views are like the sheets in it
 -- public.users explication
 -- when you are building out microservices aplicattions you want to have diffrent domains
@@ -11,7 +14,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE public.users (
   uuid UUID DEFAULT uuid_generate_v4() PRIMARY KEY, -- specify the type as being an uuid
   display_name text,
-  handle text
+  handle text,
   cognito_user_id text,
   created_at TIMESTAMP default current_timestamp NOT NULL
 );
