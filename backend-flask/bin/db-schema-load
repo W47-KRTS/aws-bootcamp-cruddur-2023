@@ -3,4 +3,10 @@
 
 echo "db-schema-load"
 
-psql $CONNECTION_URL cruddur <db/schema.sql
+#schema_path=/workspace/aws-bootcamp-cruddur-2023/db/schema.sql
+schema_path="$(realpath .)/backend-flask/db/schema.sql" 
+
+echo $schema_path
+
+NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
+psql $NO_DB_CONNECTION_URL -c cruddur < $schema_path
