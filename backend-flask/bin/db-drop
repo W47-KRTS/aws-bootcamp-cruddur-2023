@@ -1,5 +1,6 @@
 #! /usr/bin/bash
 #treats the file as a bash file
+
 CYAN='\033[1;36m'
 NO_COLOR='\033[0m'
 LABEL="db-drop"

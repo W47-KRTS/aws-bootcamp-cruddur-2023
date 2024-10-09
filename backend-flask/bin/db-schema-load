@@ -6,10 +6,12 @@ NO_COLOR='\033[0m'
 LABEL="db-schema-load"
 printf "${CYAN}==${LABEL}${NO_COLOR}\n"
 
-# echo "==db-schema-load"
+
+#echo "==db-schema-load"
 #schema_path=/workspace/aws-bootcamp-cruddur-2023/db/schema.sql
 schema_path="$(realpath .)/backend-flask/db/schema.sql" 
 echo $schema_path
+
 
 if [ "$1" = "prod" ]; then
     echo "using production"
@@ -18,8 +20,9 @@ else
     URL=$CONNECTION_URL
 fi
 
-
 psql $URL cruddur < $schema_path
+
+
 
 # NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
 # psql $NO_DB_CONNECTION_URL cruddur < $schema_path
