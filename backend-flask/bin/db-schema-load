@@ -9,7 +9,7 @@ printf "${CYAN}==${LABEL}${NO_COLOR}\n"
 # echo "==db-schema-load"
 #schema_path=/workspace/aws-bootcamp-cruddur-2023/db/schema.sql
 schema_path="$(realpath .)/backend-flask/db/schema.sql" 
-# echo $schema_path
+echo $schema_path
 
 if [ "$1" = "prod" ]; then
     echo "using production"
