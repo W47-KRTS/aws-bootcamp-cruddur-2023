@@ -16,4 +16,8 @@ rollbar
 
 Flask-AWSCognito
 
+psycopg[binary]
+psycopg[pool]
+
+
 # pip install -r requirements.txt to install the file
