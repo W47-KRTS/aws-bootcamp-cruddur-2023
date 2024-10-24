@@ -41,6 +41,8 @@
 # must install in frontend
 # - npm install
 
+
+# psql -Upostgres --host localhost
 # export CONNECTION_URL="postgresql://postgres:password@127.0.0.1:5432/cruddur"
 # sau
 # export CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
