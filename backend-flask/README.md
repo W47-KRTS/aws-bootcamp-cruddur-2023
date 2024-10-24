@@ -53,9 +53,11 @@
 # gp env CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
 
 # export PROD_CONNECTION_URL="postgresql://cruddurroot:Wolverine47@cruddur-db-instance.c3c4wcm6wmvr.eu-north-1.rds.amazonaws.com:5432/cruddur"
-# gp env PROD_CONNECTION_URL="postgresql://cruddurroot:Wolverine47@cruddur-db-instance.c3c4wcm6wmvr.eu-north-1.rds.amazonaws.com:5432/cruddur"
-
+# export PROD_CONNECTION_URL="postgresql://cruddurroot:Wolverine47@cruddur-db-instance.c3c4wcm6wmvr.eu-north-1.rds.amazonaws.com:5432/cruddur"
 
 # pip install "psycopg[binary]"
 # pip install "psycopg[pool]"
 
+# ip address for gitpod: curl ifconfig.me -must add both as a rule in aws
+# set the ip adress: GITPOD_IP=$(curl ifconfig.me)
+# return the ip adress: echo $GITPOD_IP
