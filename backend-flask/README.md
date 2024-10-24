@@ -56,3 +56,6 @@
 # gp env PROD_CONNECTION_URL="postgresql://cruddurroot:Wolverine47@cruddur-db-instance.c3c4wcm6wmvr.eu-north-1.rds.amazonaws.com:5432/cruddur"
 
 
+# pip install "psycopg[binary]"
+# pip install "psycopg[pool]"
+

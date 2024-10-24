@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta, timezone
-from opentelemetry import trace
+# from opentelemetry import trace
 import logging
 
 from lib.db import pool

@@ -30,12 +30,12 @@ from lib.cognito_jwt_token import CognitoJwtToken, TokenVerifyError
 #from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
 
 # X-RAY ---------------
-from aws_xray_sdk.core import xray_recorder
-from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
+# from aws_xray_sdk.core import xray_recorder
+# from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 
 # WATCHTOWER----------- 
-import watchtower
-import logging
+# import watchtower
+# import logging
 from time import strftime
 
 # Configuring Logger to Use CloudWatch
