@@ -17,3 +17,16 @@ aws rds create-db-instance \
   --enable-performance-insights \
   --performance-insights-retention-period 7 \
   --no-deletion-protection
+
+
+  sgr-01e00597d00552797q
+
+export DB_SG_ID="sg-0276a5f5055c0d686"
+gp env DB_SG_ID="sg-0276a5f5055c0d686"
+
+export DB_SG_RULE_ID="sgr-01e00597d00552797"
+gp env DB_SG_RULE_ID="sgr-01e00597d00552797"
+
+aws ec2 modify-security-group-rules \
+    --group-id $DB_SG_ID \
+    --security-group-rules "SecurityGroupRuleId=$DB_SG_RULE_ID,SecurityGroupRule={IpProtocol=tcp,FromPort=5432,ToPort=5432,CidrIpv4=$GITPOD_IP/32}"
