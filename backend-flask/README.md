@@ -60,4 +60,5 @@
 
 # ip address for gitpod: curl ifconfig.me -must add both as a rule in aws
 # set the ip adress: GITPOD_IP=$(curl ifconfig.me)
+# export it: export GITPOD_IP=$(curl ifconfig.me)
 # return the ip adress: echo $GITPOD_IP
