@@ -19,7 +19,7 @@ aws rds create-db-instance \
   --no-deletion-protection
 
 
-sgr-01e00597d00552797q
+sgr-01e00597d00552797
 
 export DB_SG_ID="sg-0276a5f5055c0d686"
 gp env DB_SG_ID="sg-0276a5f5055c0d686"
