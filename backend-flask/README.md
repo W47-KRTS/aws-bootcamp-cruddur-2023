@@ -58,6 +58,8 @@
 # pip install "psycopg[binary]"
 # pip install "psycopg[pool]"
 
+# pip install "psycopg2[binary]"
+
 # ip address for gitpod: curl ifconfig.me -must add both as a rule in aws
 # set the ip adress: GITPOD_IP=$(curl ifconfig.me)
 # export it: export GITPOD_IP=$(curl ifconfig.me)
