@@ -1,0 +1,50 @@
+https://www.youtube.com/watch?v=zA8guDqfv40&t=42567s
+
+
+Notes for the AWS Cloud complete bootcamp
+
+around 3:00:00 - setting the env thru git pod, github, aws
+3:44:30 - setting billing alarm
+4:14:00 tags?
+
+
+12:02:00 - Asking for questions in discord the correct way
+
+Week3
+19:15:33 Cognito - decentralised authentication - Integrate it into a backend application with custom login pages
+the way a real company would accually want to use it - week03
+
+23:22:00 Improved UI
+
+    Week 4 — Postgres and RDS
+    
+1:00:20:00 Provision RDS Instance
+1:01:27:50 give permission to a file to execute:
+-#! /usr/bin/bash -make it a bash execute file -
+-ls -l to show the state of the files
+-chmod u+x(or+x) and the name of the file to become executable
+1:01:31 Cannot drop the curently open database - we are connected to it
+man sed - tool used to manipulate text in place
+bin/db-drop
+#! /usr/bin/bash
+
+NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
+psql $NO_DB_CONNECTION_URL -c "DROP database cruddur;"
+
+Replaces /cruddur with nothing in psql postgresql://postgres:password@127.0.0.1:5432/cruddur
+'s/\/cruddur//g' - sed 's/what to select/what to replaceit with//g-globally'
+-\ the backslash is to isolate / in /cruddur
+
+1:03:31
+Create a Lambda
+1:03:41
+MAking a new layer for postgreql libraries 
+Lambda - layer - arn:aws:lambda:eu-central-1:770693421928:layer:Klayers-p311-aws-psycopg2:1	
+https://api.klayers.cloud//api/v2/p3.11/layers/latest/eu-central-1/html
+
+1.03.44
+Add trigger to lambda
+posibil sa trebuiasca sa fac un layer pt postgress pt ca-north
+
+
+ramas la https://youtu.be/zA8guDqfv40?t=9249272UDixhmtqZNNjZpB3HdOhUXSEtRPY99
