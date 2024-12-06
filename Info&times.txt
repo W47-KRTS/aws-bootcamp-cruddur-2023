@@ -27,11 +27,11 @@ aws rds create-db-instance \
   --db-instance-identifier cruddur-db-instance \
   --db-instance-class db.t3.micro \
   --engine postgres \
-  --engine-version  14.6 \
+  --engine-version  16.3 \
   --master-username root \
   --master-user-password huEE33z2Qvl383 \
   --allocated-storage 20 \
-  --availability-zone eu-central-1a \
+  --availability-zone eu-north-1a \
   --backup-retention-period 0 \
   --port 5432 \
   --no-multi-az \
@@ -63,8 +63,9 @@ Replaces /cruddur with nothing in psql postgresql://postgres:password@127.0.0.1:
 Create a Lambda
 1:03:41:00
 MAking a new layer for postgreql libraries 
-Lambda - layer - arn:aws:lambda:eu-central-1:770693421928:layer:Klayers-p311-aws-psycopg2:1	
-https://api.klayers.cloud//api/v2/p3.11/layers/latest/eu-central-1/html
+Lambda - layer - 
+
+https://aws-sdk-pandas.readthedocs.io/en/stable/layers.html
 
 1:03:44:00
 Add trigger to lambda
