@@ -71,9 +71,7 @@ Replaces /cruddur with nothing in psql postgresql://postgres:password@127.0.0.1:
 Create a Lambda
 1:03:41:00
 MAking a new layer for postgreql libraries 
-Lambda - layer - 
-
-https://aws-sdk-pandas.readthedocs.io/en/stable/layers.html
+Lambda - layer - arn:aws:lambda:eu-north-1:730335305336:function:cruddur-post-confirmation-2
 
 1:03:44:00
 Add trigger to lambda
