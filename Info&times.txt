@@ -77,5 +77,7 @@ Lambda - layer - arn:aws:lambda:eu-north-1:730335305336:function:cruddur-post-co
 Add trigger to lambda
 posibil sa trebuiasca sa fac un layer pt postgress pt ca-north
 
+1:04:01:30
+Create a new policy for EC2
 
 ramas la https://youtu.be/zA8guDqfv40?t=9249272UDixhmtqZNNjZpB3HdOhUXSEtRPY99
