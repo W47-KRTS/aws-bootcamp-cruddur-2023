@@ -9,7 +9,7 @@ def lamda_handler(event, context):
 
     user_display_name   = user['name']
     user_email          = user['email']
-    user_handle          = user['preffered_username']
+    user_handle         = user['preffered_username']
     user_cognito_id     = user['sub']
 
     try:
