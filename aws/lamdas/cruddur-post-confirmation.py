@@ -27,7 +27,7 @@ def lamda_handler(event, context):
         VALUES(
             {user_display_name}, 
             {user_email}, 
-            {user_handle}
+            {user_handle},
             {user_cognito_id}
         )"
         """
