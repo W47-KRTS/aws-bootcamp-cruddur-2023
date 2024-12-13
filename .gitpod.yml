@@ -29,6 +29,11 @@ tasks:
     command: |
       cd backend-flask
       pip requirements.txt
+  - name: app.py-5
+    command: |
+      cd backend-flask
+      pip install psycopg2-binary 
+
   - name: workspace
     command: |
       cd /workspace/aws-bootcamp-cruddur-2023
