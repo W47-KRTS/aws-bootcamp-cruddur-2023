@@ -25,7 +25,7 @@ def lamda_handler(event, context):
             {user_email}, 
             {user_handle},
             {user_cognito_id}
-        )"
+        )
         """
 
         conn = psycopg2.connect(os.getenv('CONNECTION_URL'))
