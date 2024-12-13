@@ -13,12 +13,8 @@ def lamda_handler(event, context):
     user_cognito_id     = user['sub']
 
     try:
-        conn = psycopg2.connect(os.getenv('CONNECTION_URL'))
-        cur = conn.cursor()
-        (user['name'], user['email'], user['sub'])
-
         sql = f"""
-        "INSERT INTO users (
+        INSERT INTO users (
         display_name, 
         email,
         handle, 
@@ -31,7 +27,10 @@ def lamda_handler(event, context):
             {user_cognito_id}
         )"
         """
-        
+
+        conn = psycopg2.connect(os.getenv('CONNECTION_URL'))
+        cur = conn.cursor()
+        (user['name'], user['email'], user['sub'])
         cur.execute(sql)
         conn.commit()
 
