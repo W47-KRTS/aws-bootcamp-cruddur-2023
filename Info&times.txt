@@ -80,4 +80,4 @@ posibil sa trebuiasca sa fac un layer pt postgress pt ca-north
 1:04:01:30
 Create VPC - Create/Attach a new policy for EC2 allow
 
-ramas la https://youtu.be/zA8guDqfv40?t=9249272UDixhmtqZNNjZpB3HdOhUXSEtRPY99
+ramas la https://youtu.be/zA8guDqfv40?t=101147
