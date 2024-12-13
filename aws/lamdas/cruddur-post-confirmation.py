@@ -31,6 +31,7 @@ def lamda_handler(event, context):
             {user_cognito_id}
         )"
         """
+        
         cur.execute(sql)
         conn.commit()
 
