@@ -28,7 +28,7 @@ tasks:
   - name: app.py-4
     command: |
       cd backend-flask
-      pip requirements.txt
+      pip install -r requirements.txt
   - name: app.py-5
     command: |
       cd backend-flask
