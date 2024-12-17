@@ -25,7 +25,11 @@ around 3:00:00 - setting the env thru git pod, github, aws
 the way a real company would accually want to use it - week03
 User pool- when you are making a web app and have log in and sign up
 and have that managed externally
-19:56:00
+20:10:41 - User pool ID 
+   - in dockker-compose.yml
+    AWS_COGNITO_USER_POOL_ID: -from User pools
+    AWS_COGNITO_USER_POOL_CLINET_ID: -from App clients and analytics 
+
 23:22:00 Improved UI
 
 
