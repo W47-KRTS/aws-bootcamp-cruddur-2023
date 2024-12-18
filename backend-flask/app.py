@@ -6,7 +6,7 @@ from flask import *
 import os
 
 
-from flask_awscognito import AWSCognitoAuthentication
+# from flask_awscognito import AWSCognitoAuthentication
 
 from services.home_activities import *
 from services.user_activities import *
@@ -20,7 +20,8 @@ from services.create_message import *
 from services.show_activity import *
 
 from lib.cognito_jwt_token import CognitoJwtToken, extract_access_token, TokenVerifyError
-# HoneyComb ----------
+
+#  HoneyComb ----------
 #from opentelemetry import trace
 #from opentelemetry.instrumentation.flask import FlaskInstrumentor
 #from opentelemetry.instrumentation.requests import RequestsInstrumentor

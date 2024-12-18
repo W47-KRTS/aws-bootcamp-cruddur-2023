@@ -29,6 +29,16 @@ and have that managed externally
    - in dockker-compose.yml
     AWS_COGNITO_USER_POOL_ID: -from User pools
     AWS_COGNITO_USER_POOL_CLINET_ID: -from App clients and analytics 
+20:17:00 HomefeedPage.js from frontend
+import {Auth} from 'aws-amplify'
+const [user, setUser] = React.useState(null);
+......
+checkAuth();
+
+20:33:40
+Debugging skills ;) 
+ - View logs
+ - Attach to shell -> env -> verify the env variables
 
 23:22:00 Improved UI
 
