@@ -35,6 +35,26 @@ const [user, setUser] = React.useState(null);
 ......
 checkAuth();
 
+!!! To make USER Pool ID manually:
+# First command - Create user pool
+aws cognito-idp create-user-pool --pool-name "MyUserPool"
+
+# Wait a moment to get the pool ID after creation
+aws cognito-idp list-user-pools --max-results 10
+
+# Second command - Create client (once you have the pool ID)
+aws cognito-idp create-user-pool-client \
+    --user-pool-id eu-north-1_tpn4XlV1R \
+    --client-name "MyAppClient" \
+    --no-generate-secret \
+    --explicit-auth-flows "ALLOW_USER_SRP_AUTH" "ALLOW_REFRESH_TOKEN_AUTH" \
+    --supported-identity-providers "COGNITO" \
+    --callback-urls '["http://localhost:3000/callback"]' \
+    --logout-urls '["http://localhost:3000"]'
+
+If you want to run this as a single line (which often works better in command line), here it is:
+aws cognito-idp create-
+
 20:33:40
 Debugging skills ;) 
  - View logs
