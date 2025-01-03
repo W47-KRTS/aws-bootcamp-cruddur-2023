@@ -13,14 +13,6 @@ tasks:
     command: |
       cd frontend-react-js
       npm i
-  - name: app.py-1
-    command: |
-      cd backend-flask
-      pip install Flask
-  - name: app.py-2
-    command: |
-      cd backend-flask
-      pip install Flask_cors
   - name: app.py-3
     command: |
       cd backend-flask
