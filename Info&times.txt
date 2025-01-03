@@ -118,11 +118,5 @@ Create VPC - Create/Attach a new policy for EC2 allow
 
 ramas la https://youtu.be/zA8guDqfv40?t=101147
 
-  - name: app.py-1
-    command: |
-      cd backend-flask
-      pip install Flask
-  - name: app.py-2
-    command: |
-      cd backend-flask
-      pip install Flask_cors
+1:04:05 ? 
+turn on the database in aws.
