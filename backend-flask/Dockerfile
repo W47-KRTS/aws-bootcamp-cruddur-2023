@@ -8,9 +8,9 @@ COPY requirements.txt requirements.txt
 # Install the python libraries used for the app
 RUN pip3 install -r requirements.txt
 
-RUN pip install Flask
+# RUN pip install Flask
 
-RUN pip install Flask_cors
+# RUN pip install Flask_cors
 
 # Outside Container -> Inside Container
 # . means everything in the current directory

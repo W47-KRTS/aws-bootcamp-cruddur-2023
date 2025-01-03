@@ -2,9 +2,12 @@
 services:
   backend-flask:
     environment:
-      CONNECTION_URL: "postgresql://postgres:password@db:5432/cruddur"
-      #FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
-      #BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      CONNECTION_URL: "${PROD_CONNECTION_URL}"
+      #CONNECTION_URL: "postgresql://postgres:password@db:5432/cruddur"
+      FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      #FRONTEND_URL: "https://${CODESPACE_NAME}-3000.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
+      #BACKEND_URL: "https://${CODESPACE_NAME}-4567.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
       OTEL_SERVICE_NAME: 'backend-flask'
       OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
       OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${honeycomb_API_KEY}"
@@ -17,7 +20,6 @@ services:
       AWS_COGNITO_USER_POOL_ID: "eu-north-1_tpn4XlV1R"
       AWS_COGNITO_USER_POOL_CLIENT_ID: "5lpk3aruj6kj25nid7vth1oi89"
     
-
     build: ./backend-flask
     ports:
       - "4567:4567"

@@ -3,15 +3,12 @@ import requests
 from jose import jwk, jwt
 from jose.exceptions import JOSEError
 from jose.utils import base64url_decode
-# from flask_awscognito.exceptions import FlaskAWSCognitoError, TokenVerifyError
-
 
 class FlaskAWSCognitoError(Exception):
-    pass
-
+  pass
 
 class TokenVerifyError(Exception):
-    pass
+  pass
 
 def extract_access_token(request_headers):
     access_token = None
@@ -113,5 +110,5 @@ class CognitoJwtToken:
         self._check_expiration(claims, current_time)
         self._check_audience(claims)
 
-        self.claims = claims
+        self.claims = claims 
         return claims
