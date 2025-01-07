@@ -233,7 +233,6 @@ def data_search():
   return
 
 @app.route("/api/activities", methods=['POST','OPTIONS'])
-
 @cross_origin()
 def data_activities():
   user_handle  = 'andrewpostu'
