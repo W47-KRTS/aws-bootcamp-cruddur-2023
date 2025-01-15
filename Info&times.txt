@@ -123,3 +123,6 @@ turn on the database in aws.
 
 -mai bine ma uit in reverse. schimba mult cod degeaba.
 am dat skip de la 1:05:15 pana la 1:06:16:47
+
+    Week 5 - DynamoDB and Serverless Caching 
+-1:06:24:00
