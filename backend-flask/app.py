@@ -126,7 +126,7 @@ cors = CORS(
 
 # Rollbar ----------
 rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
-@app.got_first_request
+@app.before_first_request
 def init_rollbar():
     """init rollbar module"""
     rollbar.init(
@@ -264,4 +264,4 @@ def data_activities_reply(activity_uuid):
   return
 
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run(debug=True, host='0.0.0.0', port=4567)
