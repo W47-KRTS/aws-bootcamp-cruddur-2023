@@ -28,6 +28,7 @@ class Db:
     self.pool = ConnectionPool(connection_url)
   # we want to commit data such as an insert
   # be sure to check for RETURNING in all uppercases
+
   def print_params(self,params):
     blue = '\033[94m'
     no_color = '\033[0m'
@@ -89,6 +90,7 @@ class Db:
     ) object_row);
     """
     return sql
+  
   def query_wrap_array(self,template):
     sql = f"""
     (SELECT COALESCE(array_to_json(array_agg(row_to_json(array_row))),'[]'::json) FROM (
@@ -96,7 +98,7 @@ class Db:
     ) array_row);
     """
     return sql
-  def print_sql_err(self,err):
+  def print_sql_err(self, err):
     # get details about the exception
     err_type, err_obj, traceback = sys.exc_info()
 
@@ -112,3 +114,4 @@ class Db:
     print ("pgcode:", err.pgcode, "\n")
 
 db = Db()
+
