@@ -44,6 +44,8 @@ class CreateActivity:
         'message': message
       }   
     else:
+      expires_at = (now + ttl_offset)
+      CreateActivity.create_activity(user_handle, message, expires_at)
       model['data'] = {
         'uuid': uuid.uuid4(),
         'display_name': 'Andrew Brown',
