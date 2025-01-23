@@ -22,6 +22,8 @@ psycopg[pool]
 
 psycopg2-binary
 
+boto3
 
 
-# pip install -r requirements.txt to install the file
+
+# pip install -r requirements.txt  :to install the file
