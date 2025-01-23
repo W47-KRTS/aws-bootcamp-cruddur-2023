@@ -125,4 +125,8 @@ turn on the database in aws.
 am dat skip de la 1:05:15 pana la 1:06:16:47
 
     Week 5 - DynamoDB and Serverless Caching -1:06:24:00
--ramas la 1:07:43:00
+
+AWS SCP Best Practices - https://github.com/hashishrajan/aws-scp-best-practice-policies
+Cloud-security-vulnerabilities - https://github.com/hashishrajan/cloud-security-vulnerabilities
+
+-ramas la 1:08:34:00
