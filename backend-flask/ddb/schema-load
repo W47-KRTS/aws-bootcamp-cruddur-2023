@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+
+import boto3 
+
+dynamob = boto3.client('dynamob', {endpoint_url: '})
