@@ -129,4 +129,4 @@ am dat skip de la 1:05:15 pana la 1:06:16:47
 AWS SCP Best Practices - https://github.com/hashishrajan/aws-scp-best-practice-policies
 Cloud-security-vulnerabilities - https://github.com/hashishrajan/cloud-security-vulnerabilities
 
--ramas la 1:08:34:00
+-ramas la 1:08:45:00
