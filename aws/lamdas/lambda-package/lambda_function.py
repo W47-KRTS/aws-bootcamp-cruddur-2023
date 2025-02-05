@@ -4,13 +4,13 @@ import os
 
 def lambda_handler(event, context):
     user = event['request']['userAttributes']
-    print('userAttributes')
-    print(user)
+    print('userAttributes:', user)
 
-    user_display_name  = user['name']
-    user_email         = user['email']
-    user_handle        = user['preferred_username']
-    user_cognito_id    = user['sub']
+    user_display_name = user.get('name', 'Unknown')
+    user_email = user.get('email', 'no-email@example.com')
+    user_handle = user.get('preferred_username', user.get('sub'))  # Fallback to 'sub' if missing
+    user_cognito_id = user.get('sub')
+
     conn = None
     try:
         print('entered-try')
@@ -25,6 +25,7 @@ def lambda_handler(event, context):
         """
         print('SQL Statement ----')
         print(sql)
+
         conn = psycopg2.connect(os.getenv('CONNECTION_URL'))
         cur = conn.cursor()
 
@@ -42,7 +43,7 @@ def lambda_handler(event, context):
         print(f"An error occurred: {error}")
     
     finally:
-        if conn is not None:
+        if conn:
             cur.close()
             conn.close()
             print('Database connection closed.')
