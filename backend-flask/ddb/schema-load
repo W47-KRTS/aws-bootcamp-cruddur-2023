@@ -8,14 +8,14 @@ attrs = {
     }
 
 if len(sys.argv) == 2:
-    if "prod" in sys.argsv[1]:
+    if "prod" in sys.argv[1]:
         attrs = {}
 
-ddb = boto3.client('dynamob', **attrs)
+ddb = boto3.client('dynamodb', **attrs)
 table_name = 'cruddur-message'
 
 response = ddb.create_table(
-    Tablename=table_name,
+    TableName=table_name,
     AttributeDefinitions=[
         {
             'AttributeName': 'pk',
@@ -24,20 +24,21 @@ response = ddb.create_table(
         {
             'AttributeName': 'sk',
             'AttributeType': 'S'
-        },                             
+        }                           
    ],
 
     KeySchema=[
         {
-            'AttributeName': 'pk'
+            'AttributeName': 'pk',
             'KeyType': 'HASH'
         },
         {
-            'AttributeName': 'sk'
+            'AttributeName': 'sk',
             'KeyType': 'RANGE'
-        },
+        }
     ],
-   #GlobalSecondaryIndexes=[],
+
+    # GlobalSecondaryIndexes=[],
     BillingMode='PROVISIONED',
     ProvisionedThroughput={
         'ReadCapacityUnits': 5,
