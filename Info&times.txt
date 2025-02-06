@@ -129,4 +129,13 @@ am dat skip de la 1:05:15 pana la 1:06:16:47
 AWS SCP Best Practices - https://github.com/hashishrajan/aws-scp-best-practice-policies
 Cloud-security-vulnerabilities - https://github.com/hashishrajan/cloud-security-vulnerabilities
 
+    # List tables - aws dynamodb list-tables
+https://docs.aws.amazon.com/cli/latest/reference/dynamodb/list-tables.html?highlight=list%20tables
+
+
+
+
+
 -ramas la 1:08:45:00
+
+
